@@ -1,0 +1,1 @@
+furiosa-sdk[accuracy_debugger, quantizer] >= 0.4.0

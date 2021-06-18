@@ -50,7 +50,8 @@ EXTRAS_REQUIREMENTS: Dict[str, List[str]] = {
     "cli": ["furiosa-sdk-cli~=0.4.0"],
     "runtime": ["furiosa-sdk-runtime~=0.4.0"],
     "quantizer": ["furiosa-sdk-quantize~=0.4.0"],
-    "validator": ["furiosa-sdk-model-validator~=0.4.0"]
+    "validator": ["furiosa-sdk-model-validator~=0.4.0"],
+    "accuracy_debugger": ["furiosa-sdk-accuracy-debugger~=0.4.0"],
 }
 
 # Requirements for all "user" extras (no devel). They are de-duplicated. Note that we do not need
