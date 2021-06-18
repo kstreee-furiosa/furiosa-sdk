@@ -156,7 +156,10 @@ def into_exception(err: NativeError) -> NuxException:
     if err == NativeError.SUCCESS:
         return RuntimeError(msg='NuxErr.SUCCESS cannot be NuxException')
 
-    if err in _errors_to_exceptions.keys():
-        return _errors_to_exceptions[err]
+    try:
+        if err in _errors_to_exceptions.keys():
+            return _errors_to_exceptions[err]
+    except TypeError:
+        return InternalError("Invalid NativeError: %s".format(err))
 
-    return InternalError()
+    return InternalError("Unknown NativeError: %s".format(err))

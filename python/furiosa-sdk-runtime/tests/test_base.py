@@ -81,7 +81,8 @@ class AsyncPredictionTester(PredictionTester):
     def _run_nux(self, inputs: np.ndarray) -> np.ndarray:
         key = random.randint(0, 100)
         self.nux_sess.submit(inputs, context={'key': key})
-        _, outputs = self.nux_queue.recv()
+        received_context, outputs = self.nux_queue.recv()
+        assert key == received_context['key']
         return outputs[0].numpy()
 
     def close(self):
